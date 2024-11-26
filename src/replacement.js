@@ -8,5 +8,13 @@
  * @returns {Array<number>}
  */
 module.exports.replacement = function replacement(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+  return arr.map(num => {
+    const absNum = Math.abs(num);
+    const digitCount = absNum === 0 ? 1 : Math.floor(Math.log10(absNum)) + 1; 
+    if (digitCount === 1) return 1; 
+    if (digitCount === 2) return 2; 
+    if (digitCount === 3) return 3; 
+    return 4; 
+  });
+}
+

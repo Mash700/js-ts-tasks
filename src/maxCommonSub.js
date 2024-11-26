@@ -9,5 +9,16 @@
  * @returns {number}
  */
 module.exports.maxCommonSub = function maxCommonSub(str1, str2) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+    let longestSubstr = '';
+
+    for (let i = 0; i < str1.length; i++) {
+      for (let j = i + 1; j <= str1.length; j++) {
+        const substring = str1.slice(i, j); 
+        if (str2.indexOf(substring) !== -1 && substring.length > longestSubstr.length) {
+          longestSubstr = substring; 
+        }
+      }
+    }
+  
+    return longestSubstr;
+  }

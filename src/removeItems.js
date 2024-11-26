@@ -5,5 +5,12 @@
  * @returns {Object}
  */
 module.exports.removeItems = function removeItems(arr, value) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+    const deepEqual = (a, b) =>
+      a === b ||
+      (typeof a === "object" && typeof b === "object" && a !== null && b !== null &&
+       Object.keys(a).length === Object.keys(b).length &&
+       Object.keys(a).every(key => deepEqual(a[key], b[key])));
+    
+    return arr.filter(item => !deepEqual(item, value));
+  };
+

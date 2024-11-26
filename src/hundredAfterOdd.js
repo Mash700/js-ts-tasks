@@ -3,6 +3,16 @@
  * @param {Object} arr
  * @returns {Object}
  */
-module.exports.hundredAfterOdd = function hundredAfterOdd(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+module.exports.hundredAfterOdd = function hundredAfterOdd(arr, value) {
+  let result = [];
+  
+  arr.forEach(item => {
+    result.push(item); 
+    if (item % 2 !== 0) 
+      { 
+      result.push(100); 
+    }
+  });
+
+  return result;
+}

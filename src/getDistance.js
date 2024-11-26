@@ -6,6 +6,9 @@
  * @param {Object} secondPoint
  * @returns {number}
  */
-module.exports.getDistance = function getDistance(firstPoint, secondPoint) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+  function getDistance(firstPoint, secondPoint) {
+    const dx = secondPoint.X - firstPoint.X;
+    const dy = firstPoint.Y - secondPoint.Y; 
+    const distance = Math.sqrt(dx ** 2 + dy ** 2);
+    return parseFloat(distance.toFixed(2)); 
+}

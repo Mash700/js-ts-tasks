@@ -4,5 +4,15 @@
  * @returns {Object}
  */
 module.exports.getMaximalSequence = function getMaximalSequence(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+    let maxSeq = [], currentSeq = [];
+    arr.forEach((num, index) => {
+        if (num === arr[index - 1]) {
+            currentSeq.push(num);
+        } else {
+            if (currentSeq.length > maxSeq.length) maxSeq = currentSeq;
+            currentSeq = [num];
+        }
+    });
+
+    return currentSeq.length > maxSeq.length ? currentSeq : maxSeq;
+}
