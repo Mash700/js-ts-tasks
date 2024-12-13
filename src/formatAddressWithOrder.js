@@ -9,5 +9,10 @@
  * @returns {function}
  */
 module.exports.formatAddressWithOrder = function formatAddressWithOrder(order) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  return function (obj) {
+    const fields = {street: obj.street || '', house: obj.house || '', apartment: obj.apartment || '', city: obj.city || '', postalCode: obj.postalCode || '', country: obj.country || ''
+    };
+    const orderedAddress = order.map(field => fields[field] !== undefined ? fields[field] : '');
+    return orderedAddress.filter(value => value).join(', ');
+  };
 };
